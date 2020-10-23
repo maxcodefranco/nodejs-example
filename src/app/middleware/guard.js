@@ -1,3 +1,5 @@
-exports.requireAuth = function (req, res, next) {
-    next();
+exports.requireAuth = () => {
+    return (req, res, next) => {
+        next();
+    }
 }

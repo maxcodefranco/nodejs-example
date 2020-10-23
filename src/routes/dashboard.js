@@ -1,9 +1,8 @@
-const express = require('express'),
-    app = express();
+const app = require('express')(),
+    { controller: dashboardController} = require('../api/dashboard.controller'),
+    { mappingRoutes } = require('../app/utils/route.utils');
 
-// controllers
-var { controller: dashboardController} = require('../api/dashboard.controller');
-
-app.get('', dashboardController.index)
+mappingRoutes(app,
+    ['get',     '',     dashboardController.index]);
 
 exports.app = app;

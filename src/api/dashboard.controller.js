@@ -5,7 +5,7 @@ class DashboardController extends BaseController {
     constructor() {
         super();
 
-        this.index = this.index.bind(this);
+        this.bindActions('index');
     }
 
     index(req, res, next) {

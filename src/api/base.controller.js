@@ -3,6 +3,9 @@ const appVersion = require('../app').getEnv("APP_NAME");
 
 class BaseController {
 
+    bindActions(...actions) {
+        actions.forEach(action => this[action] = this[action].bind(this));
+    }
 
     processResponse(data) {
         const responseData = {

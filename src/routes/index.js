@@ -1,14 +1,10 @@
 const express = require('express'),
-    app = express(),
-    authApp = require('./auth').app,
-    dashboardApp = require('./dashboard').app;
+    { app: authApp} = require('./auth'),
+    { app: dashboardApp } = require('./dashboard'),
+    { mappingRoutes } = require('../app/utils/route.utils');
 
-function useApiMapping() {
-
-    app.use('/dashboard', dashboardApp);
-    app.use('/auth', authApp);
-
+exports.useApiMapping = (app) => {
+    mappingRoutes(app,
+        ['use',     '/auth',     authApp],
+        ['use',     '/dashboard',     dashboardApp]);
 }
-
-exports.useApiMapping = useApiMapping;
-exports.app = app;

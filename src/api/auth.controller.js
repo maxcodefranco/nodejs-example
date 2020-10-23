@@ -5,8 +5,7 @@ class AuthController extends BaseController {
     constructor() {
         super();
 
-        this.index = this.index.bind(this);
-        this.login = this.login.bind(this);
+        this.bindActions('index', 'login');
     }
 
     index (req, res) {
@@ -18,6 +17,14 @@ class AuthController extends BaseController {
     }
  
     login (req, res) {
+        res.json({status: ok})
+    }
+
+    logout (req, res) {
+        res.json({status: ok})
+    }
+
+    profile (req, res) {
         res.json({status: ok})
     }
 
